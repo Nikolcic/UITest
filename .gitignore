@@ -1,0 +1,6 @@
+/.idea/
+generate.entities/
+/logs/
+/target/
+*.iml
+
