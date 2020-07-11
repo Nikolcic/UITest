@@ -29,6 +29,15 @@ public class WebElements {
     @FindBy(css = ".sc-AxjAm")
     public WebElement taskNameInput;
 
+    @FindBy(css = ".gmvgXk")
+    public WebElement toDoColumnBody;
+
+    @FindBy(css = ".bmXcrz")
+    public WebElement inProgressColumnBody;
+
+    @FindBy(css = ".iFWCam")
+    public WebElement doneColumnBody;
+
     public WebElement toDoColumnTask(String task){
         return driver.findElement(By.xpath("//h2[text()='To Do']/../..//span[text()='"+task+"']"));
     }
@@ -70,11 +79,11 @@ public class WebElements {
     }
 
     public List<WebElement> inProgressColumnTasks(){
-        return driver.findElements(By.xpath("//h2[text()='In rogress']/../..//div[@class='sc-AxirZ KfkWX']"));
+        return driver.findElements(By.xpath("//h2[text()='In rogress']/../..//div[@class='sc-AxirZ cETdWL']"));
     }
 
-    public List<WebElement> doneColumnTask(){
-        return driver.findElements(By.xpath("//h2[text()='Doe']/../..//div[@class='sc-AxirZ KfkWX']"));
+    public List<WebElement> doneColumnTasks(){
+        return driver.findElements(By.xpath("//h2[text()='Doe']/../..//div[@class='sc-AxirZ haeNPs']"));
     }
 
 

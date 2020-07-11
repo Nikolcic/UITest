@@ -15,11 +15,7 @@ public class DriverWait {
     public static WebDriverWait generateWaits (WebDriver driver, int iWait, int eWait){
         driver.manage().timeouts().implicitlyWait(iWait, TimeUnit.SECONDS);
         WebDriverWait wait = new WebDriverWait(driver, eWait);
-        wait.ignoring(NoSuchElementException.class);
-        wait.ignoring(Exception.class);
-        wait.ignoring(WebDriverException.class);
-        wait.ignoring(ElementClickInterceptedException.class);
-        wait.ignoring(StaleElementReferenceException.class);
+
         return wait;
     }
 }
