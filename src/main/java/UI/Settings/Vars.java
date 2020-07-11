@@ -1,4 +1,4 @@
-package UI;
+package UI.Settings;
 
 import java.io.File;
 

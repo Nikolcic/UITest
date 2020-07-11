@@ -1,12 +1,13 @@
 package test;
 
 import UI.Helper;
-import UI.Vars;
+import UI.Settings.Vars;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 
 import java.io.File;

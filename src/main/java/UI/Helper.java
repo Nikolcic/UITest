@@ -1,20 +1,29 @@
 package UI;
 
+import UI.Settings.Vars;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.LocalDateTime;
+import static  org.testng.Assert.*;
 
 
 public class Helper {
 
+    public Helper(WebDriver driver, WebDriverWait wait, WebElements elements){
+        this.driver = driver;
+        this.wait = wait;
+        this.elements = elements;
+    }
+
     public WebDriver driver;
     public WebDriverWait wait;
+    public WebElements elements;
+
+
 
     public static void NavigateToURL(WebDriver driver, String url){
         driver.manage().deleteAllCookies();
@@ -35,16 +44,7 @@ public class Helper {
         }
     }
 
-    public void waitForJSToBeLoaded() {
-        try {
-            wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));}
-        catch (Exception e){
-        }
-        wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-    }
-
     public WebElement waitForVisible(WebElement element){
-        waitForJSToBeLoaded();
         wait.until(ExpectedConditions.visibilityOf(element));
         return element;
     }
@@ -61,13 +61,13 @@ public class Helper {
         return element;
     }
 
+    public void assertElementPresent(WebElement element) {
+        assertTrue(element.isDisplayed(), element.getTagName()+" element is not displayed");
+    }
+
     public boolean isElementPresent(By element) {
         boolean bool;
-        if (!driver.findElements(element).isEmpty()){
-            bool = true;
-        }else{
-            bool = false;
-        }
+        bool = !driver.findElements(element).isEmpty();
         return bool;
     }
 
