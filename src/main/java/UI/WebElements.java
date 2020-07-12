@@ -62,15 +62,15 @@ public class WebElements {
         return driver.findElement(By.xpath("//h2[text()='Doe']/../..//span[text()='"+task+"']/../button[@class='sc-AxiKw eSbheu'"));
     }
 
-    public WebElement toDoNumberOfTask(String task){
+    public WebElement toDoNumberOfTask(){
         return driver.findElement(By.xpath("//h2[text()='To Do']/..//div[@class='sc-fzozJi dteCCc']"));
     }
 
-    public WebElement inProgressNumberOfTask(String task){
+    public WebElement inProgressNumberOfTask(){
         return driver.findElement(By.xpath("//h2[text()='In rogress']/..//div[@class='sc-fzozJi dteCCc']"));
     }
 
-    public WebElement doneNumberOfTask(String task){
+    public WebElement doneNumberOfTask(){
         return driver.findElement(By.xpath("//h2[text()='Doe']/..//div[@class='sc-fzozJi dteCCc']"));
     }
 
@@ -85,6 +85,4 @@ public class WebElements {
     public List<WebElement> doneColumnTasks(){
         return driver.findElements(By.xpath("//h2[text()='Doe']/../..//div[@class='sc-AxirZ haeNPs']"));
     }
-
-
 }

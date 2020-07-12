@@ -1,15 +1,11 @@
 package UI;
 
-import UI.Settings.Vars;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.LocalDateTime;
 import static  org.testng.Assert.*;
-
 
 public class Helper {
 
@@ -22,8 +18,6 @@ public class Helper {
     public WebDriver driver;
     public WebDriverWait wait;
     public WebElements elements;
-
-
 
     public static void NavigateToURL(WebDriver driver, String url){
         driver.manage().deleteAllCookies();
@@ -55,7 +49,6 @@ public class Helper {
     }
 
     public WebElement clickWhenReady(WebElement element) {
-        makePause(Vars.SHORTER_SLEEP);
         waitForVisible(element);
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
         return element;
@@ -63,12 +56,6 @@ public class Helper {
 
     public void assertElementPresent(WebElement element) {
         assertTrue(element.isDisplayed(), element.getTagName()+" element is not displayed");
-    }
-
-    public boolean isElementPresent(By element) {
-        boolean bool;
-        bool = !driver.findElements(element).isEmpty();
-        return bool;
     }
 
     public void dragAndDropElement(WebElement element, WebElement destination){

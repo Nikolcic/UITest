@@ -3,6 +3,7 @@ package UI;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static java.lang.Integer.parseInt;
 import static org.testng.Assert.*;
 
 public class TestMethods extends Helper {
@@ -46,7 +47,6 @@ public class TestMethods extends Helper {
             }
         }
     }
-
 
     public void DragAndDropTickets(){
         String msg = "Ticket was not moved to another column";
@@ -110,5 +110,18 @@ public class TestMethods extends Helper {
         assertFalse(element.getText().contains(ticketName), "Ticket was not deleted");
     }
 
+    public void CheckCounterOfTickets (){
+        int expectedColumn1 = el.toDoColumnTasks().size();
+        int expectedColumn2 = el.inProgressColumnTasks().size();
+        int expectedColumn3 = el.doneColumnTasks().size();
+
+        int actualColumn1 = parseInt(el.toDoNumberOfTask().getText().substring(1,2));
+        int actualColumn2 = parseInt(el.inProgressNumberOfTask().getText().substring(1,2));
+        int actualColumn3 = parseInt(el.doneNumberOfTask().getText().substring(1,2));
+
+        assertEquals(actualColumn1, expectedColumn1);
+        assertEquals(actualColumn2, expectedColumn2);
+        assertEquals(actualColumn3, expectedColumn3);
+    }
 }
 
