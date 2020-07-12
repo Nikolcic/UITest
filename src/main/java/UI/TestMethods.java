@@ -91,6 +91,7 @@ public class TestMethods extends Helper {
         try {
             ticket.clear();
             ticket.sendKeys("Task Changed!");
+            ticket.sendKeys(Keys.ENTER);
         }
         catch (InvalidElementStateException e){
             e.printStackTrace();
@@ -106,7 +107,7 @@ public class TestMethods extends Helper {
         hoverOverElement(element);
         clickWhenReady(element);
 
-        assertFalse(element.getText().contains(ticketName));
+        assertFalse(element.getText().contains(ticketName), "Ticket was not deleted");
     }
 
 }
